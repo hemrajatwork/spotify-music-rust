@@ -12,14 +12,16 @@ use super::models::{SongInformation, UniqueId};
 //use std::io::{Seek, SeekFrom};
 //use std::fs;
 use super::db_lib::{establish_connection, insert_song_records};
+use std::time::Instant;
 
 pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn Error>>{
     let mut rdr = csv::Reader::from_path(file_path)?;
     let values = rdr.deserialize();
 
+    let start_insert = Instant::now();
     let batch_size:usize = 500;
     let mut pg_connection:PgConnection =  establish_connection();
-    let mut rows:Vec<SongInformation> = Vec::new();
+    let mut rows:Vec<SongInformation> = Vec::with_capacity(batch_size);
     for (line_num, line) in values.enumerate() {
         
         if line_num == 0 {
@@ -34,21 +36,25 @@ pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn E
         rows.push(record);
         if rows.len() == batch_size{
             insert_song_records(&mut pg_connection, &rows)?;
+            rows.clear();
         }
         
     }
     if !rows.is_empty(){
         insert_song_records(&mut pg_connection, &rows)?;
     }
+    let duration = start_insert.elapsed();
+    println!("Elapsed time: {:?}", duration);
+    println!("Elapsed seconds: {:.2}", duration.as_secs());
     Ok(())
 }
 
-pub fn get_file_total_line_count(file_path:PathBuf, _has_header:bool) ->usize{
-    let mut rdr = csv::Reader::from_path(file_path).unwrap();
-    let mut no_lines = 0;
-    for (line_num,_line) in rdr.records().enumerate() {
-        println!("{}",line_num);
-        no_lines = line_num;
-    }
-    no_lines
+pub fn fetch_rows(){
+    
 }
+
+pub fn clean_data(){
+    
+}
+
+
