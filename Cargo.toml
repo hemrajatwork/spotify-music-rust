@@ -15,3 +15,4 @@ chrono = "0.4.41"
 serde = {"version" = "1", features = ["derive"]}
 sha2 = "0.9.1"
 r2d2 = "0.8.10"
+rocket = {"version" = "0.5.1", features = ["json"]}

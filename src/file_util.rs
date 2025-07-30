@@ -3,7 +3,8 @@ use std::error::Error;
 use std::path::{PathBuf};
 use csv;
 use diesel::PgConnection;
-use super::models::{SongInformation, UniqueId};
+use diesel::prelude::*;
+use super::models::{SongInformation, SongInformationBase, UniqueId};
 //use sha2::{Sha256};
 //use std::thread;
 //use diesel::PgConnection;
@@ -11,7 +12,7 @@ use super::models::{SongInformation, UniqueId};
 //use diesel::r2d2::Pool;
 //use std::io::{Seek, SeekFrom};
 //use std::fs;
-use super::db_lib::{establish_connection, insert_song_records};
+use super::db_lib::{establish_connection, insert_song_records, fetch_song_rows};
 use std::time::Instant;
 
 pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn Error>>{
@@ -49,8 +50,16 @@ pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn E
     Ok(())
 }
 
-pub fn fetch_rows(){
-    
+pub fn get_song_data(){
+    let mut pg_connection:PgConnection =  establish_connection();
+    let limit:i64 = 1;
+    let cols:Vec<String> = vec!["song_id".to_string(), "song".to_string()];
+    let song_ids:Vec<i32> = vec![1030, 1031, 1032, 1034, 1035];
+    let data: QueryResult<Vec<(_,_)>> = fetch_song_rows(
+        &mut pg_connection, Some(&song_ids), Some(&cols), Some(limit));
+    for row in data {
+        println!("row: {:?}", row);
+    }
 }
 
 pub fn clean_data(){
