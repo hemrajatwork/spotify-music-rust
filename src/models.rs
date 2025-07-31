@@ -8,8 +8,9 @@ pub trait UniqueId{
     fn get_unique_id(&self) -> String;
 }
 
-#[derive(Debug, Insertable, Deserialize)]
+#[derive(Debug, Insertable, Queryable, Selectable, Deserialize)]
 #[diesel(table_name = song_information)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct SongInformation {
     #[serde(alias = "Artist(s)")]
     pub artist: String,
@@ -100,10 +101,12 @@ pub struct SongInformation {
     pub unique_id: String,
 }
 
-#[derive(Queryable,Debug)]
-#[diesel(primary_key(id))]
+#[derive(Queryable, Selectable, Serialize, Debug)]
+#[diesel(primary_key(song_id))]
+#[diesel(table_name = song_information)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct SongInformationBase {
-    pub song_id: Option<i32>,
+    pub song_id: i32,
     pub artist: String,
     pub song: String,
     pub text: String,

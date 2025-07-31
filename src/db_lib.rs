@@ -9,6 +9,7 @@ use diesel::r2d2::Pool;
 //use diesel::result::Error;
 //use std::thread;
 //use crate::schema;
+use crate::schema::song_information::dsl::*;
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
@@ -34,5 +35,25 @@ pub fn get_connection_pool() -> Pool<ConnectionManager<PgConnection>>{
         .max_size(15)
         .build(manager)
         .expect("Could not build connection pool")
+}
+
+pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, cols:Option<&Vec<String>>, limit:Option<i64>) -> QueryResult<Vec<(i32, String)>>{
+    /*let mut query = song_information::table.into_boxed();*/
+    let mut query = song_information.select((song_information::song_id, song_information::song)).into_boxed();
+
+    match song_ids {
+        Some(selected_song_ids )=>{
+            query = query.filter(song_information::song_id.eq_any(selected_song_ids));
+        },
+        None => {}
+    }
+    match limit {
+        Some(limit_records) => {
+            query = query.limit(limit_records)
+        },
+        None => {}
+    }
+    let result = query.load::<(i32, String)>(conn);
+    result
 }
 
