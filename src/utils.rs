@@ -1,6 +1,5 @@
 use std::collections::HashMap;
-use crate::schema::song_information::dsl::*;
+use crate::schema::song_information;
+use std::sync::LazyLock;
+use diesel::prelude::Column;
 
-let song_details = HashMap::new([
-
-])

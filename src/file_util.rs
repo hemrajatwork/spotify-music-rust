@@ -50,16 +50,14 @@ pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn E
     Ok(())
 }
 
-pub fn get_song_data(){
+pub fn get_song_data(song_ids:Option<&Vec<i32>>, limit:Option<i64>) -> QueryResult<Vec<(i32, String, String, String)>> {
     let mut pg_connection:PgConnection =  establish_connection();
-    let limit:i64 = 1;
-    let cols:Vec<String> = vec!["song_id".to_string(), "song".to_string()];
-    let song_ids:Vec<i32> = vec![1030, 1031, 1032, 1034, 1035];
-    let data: QueryResult<Vec<(_,_)>> = fetch_song_rows(
-        &mut pg_connection, Some(&song_ids), Some(&cols), Some(limit));
-    for row in data {
+    let data: QueryResult<Vec<(i32, String, String, String)>> = fetch_song_rows(
+        &mut pg_connection, song_ids, limit);
+    /*for row in data {
         println!("row: {:?}", row);
-    }
+    }*/
+    data
 }
 
 pub fn clean_data(){

@@ -2,6 +2,7 @@
 use dotenvy::dotenv;
 use diesel::prelude::*;
 use std::env;
+use diesel::dsl::Select;
 use crate::schema::song_information;
 use super::models::*;
 use diesel::r2d2::ConnectionManager;
@@ -10,6 +11,7 @@ use diesel::r2d2::Pool;
 //use std::thread;
 //use crate::schema;
 use crate::schema::song_information::dsl::*;
+
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
@@ -37,9 +39,9 @@ pub fn get_connection_pool() -> Pool<ConnectionManager<PgConnection>>{
         .expect("Could not build connection pool")
 }
 
-pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, cols:Option<&Vec<String>>, limit:Option<i64>) -> QueryResult<Vec<(i32, String)>>{
+pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, limit:Option<i64>) -> QueryResult<Vec<(i32, String, String, String)>>{
     /*let mut query = song_information::table.into_boxed();*/
-    let mut query = song_information.select((song_information::song_id, song_information::song)).into_boxed();
+    let mut query = song_information.select((song_id, song, artist, emotion)).into_boxed();
 
     match song_ids {
         Some(selected_song_ids )=>{
@@ -53,7 +55,7 @@ pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, cols
         },
         None => {}
     }
-    let result = query.load::<(i32, String)>(conn);
+    let result = query.load::<(i32, String, String, String)>(conn);
     result
 }
 
