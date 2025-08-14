@@ -15,7 +15,7 @@ mod response_message;
 use crate::file_util::{read_file, get_song_data};
 use crate::models::{SongInformation, SongInformationBase};
 use rocket::serde::json::Json;
-use youtube::search_youtube;
+use youtube::{search_youtube, parse_youtube_res};
 use response_message::{APIResponse};
 use serde_json::{self, Value};
 
@@ -49,7 +49,6 @@ fn get_all_songs() -> Json<Vec<(i32, String, String, String)>> {
 #[get("/search/<search_text>/<limit>")]
 async fn get_youtube_video(search_text:&str, limit:i32)->Json<APIResponse<String>>{
     let res = search_youtube(search_text, limit).await;
-    println!("{:?}", res);
     match res{
         Ok(data) =>
             {
@@ -57,7 +56,11 @@ async fn get_youtube_video(search_text:&str, limit:i32)->Json<APIResponse<String
                 if &json_data.get("error").is_some() == &true {
                     Json(APIResponse { msg: "please try again later".to_string() , code:400})
                 } else {
-                    Json(APIResponse{msg:json_data.to_string(), code:200})
+                    let video_id = parse_youtube_res(&json_data.to_string(), &search_text).unwrap();
+                    let youtube_link = format!("https://www.youtube.com/watch?v={}", video_id);
+                    println!("youtube link {}", youtube_link);
+
+                    Json(APIResponse{msg:youtube_link, code:200})
                 }
 
             },

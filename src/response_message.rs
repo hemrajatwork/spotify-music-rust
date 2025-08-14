@@ -6,3 +6,8 @@ pub struct APIResponse<T>{
     pub code: u32
 }
 
+pub struct YouTubeApiResponse{
+    pub etag: String,
+    pub video_id: String
+}
+
