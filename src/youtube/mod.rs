@@ -7,10 +7,9 @@ use reqwest;
 use rocket::Error;
 use rocket::form::validate::Len;
 
-pub async fn search_youtube<'a>(search_text:& 'a str, result_limit:i32) ->Result<String, String>{
+pub async fn search_youtube(search_text:String, result_limit:i32) ->Result<String, String>{
     println!("start youtube search");
-    let search = format!("{} song", search_text);
-    let search_str = &*search;
+    let search_str = &*search_text;
     let url = format!(
         "{}/search?part=snippet&q={}&maxResults={}&order=title&key={}&type=video&videoDuration=short&videoEmbeddable=true",
         YOUTUBE_API_URL, urlencoding::encode(search_str), result_limit, YOUTUBE_API_KEY);

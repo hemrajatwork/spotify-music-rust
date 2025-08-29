@@ -1,6 +1,6 @@
 #[macro_use] extern crate rocket;
+
 use std::path::PathBuf;
-mod song_processor;
 mod file_util;
 mod models;
 mod schema;
@@ -9,16 +9,24 @@ mod utils;
 use diesel::prelude::*;
 mod youtube;
 mod constant;
-
+mod form_struct;
+mod backend_task;
 mod response_message;
-//use song_processor::handle_song_data;
 use crate::file_util::{read_file, get_song_data};
 use crate::models::{SongInformation, SongInformationBase};
 use rocket::serde::json::Json;
 use youtube::{search_youtube, parse_youtube_res};
 use response_message::{APIResponse};
 use serde_json::{self, Value};
+use form_struct::{UserSearch};
+use rocket::form::{Form};
+use rocket_dyn_templates::{Template, context};
+use rocket::fs::FileServer;
 
+#[get("/")]
+fn index() -> Template {
+    Template::render("home", context! { message: "Hello from Tera!" })
+}
 /*fn main() {
     let song_csv_file_name:PathBuf = PathBuf::from("./data_file/spotify_dataset.csv");
     /*match read_file(song_csv_file_name, true){
@@ -48,7 +56,7 @@ fn get_all_songs() -> Json<Vec<(i32, String, String, String)>> {
 }
 #[get("/search/<search_text>/<limit>")]
 async fn get_youtube_video(search_text:&str, limit:i32)->Json<APIResponse<String>>{
-    let res = search_youtube(search_text, limit).await;
+    let res = search_youtube(search_text.to_string(), limit).await;
     match res{
         Ok(data) =>
             {
@@ -68,10 +76,20 @@ async fn get_youtube_video(search_text:&str, limit:i32)->Json<APIResponse<String
     }
 }
 
+#[post("/user_search", data="<search_data>")]
+fn user_search(search_data: Form<UserSearch<'_>>) -> Json<APIResponse<String>>{
+    let search_text = search_data.search_text.to_string();
+    Json(APIResponse{msg:search_text, code: 200})
+}
+
 #[launch]
 fn rocket() -> _ {
     rocket::build()
         .mount("/song", routes![get_song])
         .mount("/song", routes![get_all_songs])
         .mount("/song", routes![get_youtube_video])
+        .mount("/song", routes![user_search])
+        .mount("/", routes![index])
+        .mount("/static", FileServer::from("static"))
+        .attach(Template::fairing())
 }

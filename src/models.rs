@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize, Deserializer, Serializer};
 use diesel::prelude::*;
 use std::time::SystemTime;
 use sha2::{Digest, Sha256};
-use crate::schema::song_information;
+use crate::schema::spotify_schema::{song_information, song_youtube_detail};
 
 pub trait UniqueId{
     fn get_unique_id(&self) -> String;
@@ -99,9 +99,12 @@ pub struct SongInformation {
     #[serde(skip_serializing)]
     #[serde(skip_deserializing)]
     pub unique_id: String,
+    #[serde(skip_serializing)]
+    #[serde(skip_deserializing)]
+    pub youtube_video: bool,
 }
 
-#[derive(Queryable, Selectable, Serialize, Debug)]
+#[derive(Queryable, Identifiable, Selectable, Serialize, Debug, PartialEq)]
 #[diesel(primary_key(song_id))]
 #[diesel(table_name = song_information)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
@@ -147,6 +150,7 @@ pub struct SongInformationBase {
     pub similar_song_3: String,
     pub similarity_score_3: f64,
     pub unique_id: String,
+    pub youtube_video: bool,
     pub created_at: Option<SystemTime>
 }
 
@@ -191,4 +195,23 @@ mod NumerToBool{
         //let dt = NaiveDateTime::parse_from_str(&s, FORMAT).map_err(serde::de::Error::custom)?;
         //return binary
     }
+}
+
+#[derive(Queryable, Identifiable, Associations)]
+#[diesel(belongs_to(SongInformationBase, foreign_key=song_id))]
+#[diesel(table_name = song_youtube_detail)]
+pub struct SongYouTubeDetail{
+    pub id: i64,
+    pub song_id: i32,
+    pub youtube_link: String,
+    pub created_at: Option<SystemTime>
+}
+
+#[derive(Queryable, Identifiable, Associations)]
+#[diesel(table_name = song_youtube_detail)]
+pub struct BackendTask{
+    pub id: i64,
+    pub task_name: String,
+    pub status: String,
+    pub created_at: Option<SystemTime>
 }

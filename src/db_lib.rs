@@ -3,14 +3,13 @@ use dotenvy::dotenv;
 use diesel::prelude::*;
 use std::env;
 use diesel::dsl::Select;
-use crate::schema::song_information;
 use super::models::*;
 use diesel::r2d2::ConnectionManager;
 use diesel::r2d2::Pool;
 //use diesel::result::Error;
 //use std::thread;
 //use crate::schema;
-use crate::schema::song_information::dsl::*;
+use crate::schema::spotify_schema::{song_information::dsl::*, song_information};
 
 
 pub fn establish_connection() -> PgConnection {

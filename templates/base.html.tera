@@ -1,0 +1,6 @@
+{% include "header" %}
+<body>
+{% block content %}
+{% endblock content %}
+</body>
+{% include "footer" %}
