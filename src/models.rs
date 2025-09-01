@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize, Deserializer, Serializer};
 use diesel::prelude::*;
 use std::time::SystemTime;
 use sha2::{Digest, Sha256};
-use crate::schema::spotify_schema::{song_information, song_youtube_detail};
+use crate::schema::spotify_schema::{song_information, song_youtube_detail, backend_task};
 
 pub trait UniqueId{
     fn get_unique_id(&self) -> String;
@@ -197,20 +197,29 @@ mod NumerToBool{
     }
 }
 
-#[derive(Queryable, Identifiable, Associations)]
+#[derive(Queryable, Identifiable, Associations, Selectable, Serialize, Debug, Insertable)]
 #[diesel(belongs_to(SongInformationBase, foreign_key=song_id))]
 #[diesel(table_name = song_youtube_detail)]
+#[diesel(primary_key(id))]
 pub struct SongYouTubeDetail{
-    pub id: i64,
+    pub id: Option<i32>,
     pub song_id: i32,
     pub youtube_link: String,
     pub created_at: Option<SystemTime>
 }
 
-#[derive(Queryable, Identifiable, Associations)]
-#[diesel(table_name = song_youtube_detail)]
+#[derive(Queryable, Selectable, Serialize, Debug, Insertable)]
+#[diesel(table_name = backend_task)]
 pub struct BackendTask{
-    pub id: i64,
+    pub task_name: String,
+    pub status: String
+}
+
+#[derive(Queryable, Selectable, Serialize, Debug)]
+#[diesel(table_name = backend_task)]
+#[diesel(primary_key(id))]
+pub struct BackendTaskBase{
+    pub id: i32,
     pub task_name: String,
     pub status: String,
     pub created_at: Option<SystemTime>

@@ -33,6 +33,7 @@ pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn E
         let mut record: SongInformation = line?;
         println!(" song record: {}", record.artist);
         record.unique_id = record.get_unique_id();
+        record.youtube_video = false;
         //println!("{:?}", record);
         rows.push(record);
         if rows.len() == batch_size{
@@ -53,7 +54,7 @@ pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn E
 pub fn get_song_data(song_ids:Option<&Vec<i32>>, limit:Option<i64>) -> QueryResult<Vec<(i32, String, String, String)>> {
     let mut pg_connection:PgConnection =  establish_connection();
     let data: QueryResult<Vec<(i32, String, String, String)>> = fetch_song_rows(
-        &mut pg_connection, song_ids, limit);
+        &mut pg_connection, song_ids, limit, None);
     /*for row in data {
         println!("row: {:?}", row);
     }*/

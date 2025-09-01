@@ -2,15 +2,10 @@
 use dotenvy::dotenv;
 use diesel::prelude::*;
 use std::env;
-use diesel::dsl::Select;
-use super::models::*;
+use super::models::{BackendTask, SongInformation, SongYouTubeDetail};
 use diesel::r2d2::ConnectionManager;
 use diesel::r2d2::Pool;
-//use diesel::result::Error;
-//use std::thread;
-//use crate::schema;
-use crate::schema::spotify_schema::{song_information::dsl::*, song_information};
-
+use crate::schema::spotify_schema::{song_information::dsl::*, song_information, backend_task, song_youtube_detail};
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
@@ -38,7 +33,17 @@ pub fn get_connection_pool() -> Pool<ConnectionManager<PgConnection>>{
         .expect("Could not build connection pool")
 }
 
-pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, limit:Option<i64>) -> QueryResult<Vec<(i32, String, String, String)>>{
+pub struct CustomBool{
+    value: Option<bool>,
+}
+
+impl Default for CustomBool {
+    fn default() -> Self {
+        CustomBool{value: Some(true)}
+    }
+}
+
+pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, limit:Option<i64>, has_youtube_link:Option<bool>) -> QueryResult<Vec<(i32, String, String, String)>>{
     /*let mut query = song_information::table.into_boxed();*/
     let mut query = song_information.select((song_id, song, artist, emotion)).into_boxed();
 
@@ -58,3 +63,23 @@ pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, limi
     result
 }
 
+pub fn insert_task_records(conn: &mut PgConnection, info: &Vec<BackendTask>) -> QueryResult<usize> {
+    let rows_inserted = diesel::insert_into(backend_task::table)
+        .values(info)
+        .execute(conn).unwrap();
+    Ok(rows_inserted)
+}
+
+pub fn insert_song_youtube_detail(conn: &mut PgConnection, info: &Vec<SongYouTubeDetail>) -> QueryResult<usize> {
+    let rows_inserted = diesel::insert_into(song_youtube_detail::table)
+        .values(info)
+        .execute(conn).unwrap();
+    Ok(rows_inserted)
+}
+
+pub fn update_song_info(conn:&mut PgConnection, song_identifier:i32) {
+    let updated_row = diesel::update(song_information::table.filter(song_information::song_id.eq(song_identifier)))
+        .set(youtube_video.eq(true))
+        .execute(conn);
+    println!("updated row data {:?}", updated_row)
+}

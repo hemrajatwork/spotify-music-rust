@@ -1,4 +1,6 @@
 #[macro_use] extern crate rocket;
+use log::{info, error, debug, warn};
+use log4rs;
 
 use std::path::PathBuf;
 mod file_util;
@@ -22,6 +24,7 @@ use form_struct::{UserSearch};
 use rocket::form::{Form};
 use rocket_dyn_templates::{Template, context};
 use rocket::fs::FileServer;
+use backend_task::{BackEndTask};
 
 #[get("/")]
 fn index() -> Template {
@@ -60,7 +63,7 @@ async fn get_youtube_video(search_text:&str, limit:i32)->Json<APIResponse<String
     match res{
         Ok(data) =>
             {
-                let json_data:Value = serde_json::from_str(data.as_str()).unwrap();
+                let json_data:Value = serde_json::from_str(data.0.as_str()).unwrap();
                 if &json_data.get("error").is_some() == &true {
                     Json(APIResponse { msg: "please try again later".to_string() , code:400})
                 } else {
@@ -76,20 +79,32 @@ async fn get_youtube_video(search_text:&str, limit:i32)->Json<APIResponse<String
     }
 }
 
+#[get("/youtube/link")]
+async fn fetch_youtube_link(){
+    BackEndTask().await;
+}
+
 #[post("/user_search", data="<search_data>")]
 fn user_search(search_data: Form<UserSearch<'_>>) -> Json<APIResponse<String>>{
     let search_text = search_data.search_text.to_string();
     Json(APIResponse{msg:search_text, code: 200})
 }
 
-#[launch]
-fn rocket() -> _ {
+#[rocket::main]
+async fn main() -> Result<(), rocket::Error> {
+    log4rs::init_file("./config/log_setting.yaml", Default::default()).unwrap();
+    info!("Rocket application starting...");
+
     rocket::build()
         .mount("/song", routes![get_song])
         .mount("/song", routes![get_all_songs])
         .mount("/song", routes![get_youtube_video])
         .mount("/song", routes![user_search])
         .mount("/", routes![index])
+        .mount("/", routes![fetch_youtube_link])
         .mount("/static", FileServer::from("static"))
         .attach(Template::fairing())
+        .launch()
+        .await?;
+    Ok(())
 }

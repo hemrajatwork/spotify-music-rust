@@ -2,6 +2,15 @@
 
 pub mod spotify_schema {
     diesel::table! {
+        spotify_schema.backend_task (id) {
+            id -> Int4,
+            task_name -> Varchar,
+            status -> Varchar,
+            created_at -> Nullable<Timestamp>,
+        }
+    }
+
+    diesel::table! {
         spotify_schema.song_information (song_id) {
             song_id -> Int4,
             artist -> Varchar,
@@ -61,6 +70,7 @@ pub mod spotify_schema {
     diesel::joinable!(song_youtube_detail -> song_information (song_id));
 
     diesel::allow_tables_to_appear_in_same_query!(
+        backend_task,
         song_information,
         song_youtube_detail,
     );
