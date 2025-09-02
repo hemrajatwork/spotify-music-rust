@@ -47,3 +47,101 @@ INFO - [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m:
 ERROR - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m.
 WARN - No [1;34m404[0m catcher registered. Using Rocket default.
 INFO - [32mResponse succeeded.[0m
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mindex[0m[36m)[0m [32mGET[0m [34m/[0m
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - [36m([0m[39mFileServer: static[0m[36m)[0m [32mGET[0m [4;34m/static[0m[34m/<path..>[0m [[1;39m10[0m]
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/youtube/link[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - fetching songs from database
+INFO - finished fetching songs from database
+INFO - search text: Z To A , song_id: 2615
+INFO - search text: Pusimental , song_id: 2654
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mindex[0m[36m)[0m [32mGET[0m [34m/[0m
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - [36m([0m[39mFileServer: static[0m[36m)[0m [32mGET[0m [4;34m/static[0m[34m/<path..>[0m [[1;39m10[0m]
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/youtube/link[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - fetching songs from database
+INFO - finished fetching songs from database
+INFO - search text: Z To A , song_id: 2615
+INFO - search text: Pusimental , song_id: 2654
+INFO - start youtube search
+INFO - start youtube search
+INFO - found video id Nkmarl4ynRM
+INFO - updated row data Ok(1)
+INFO - found video id JzKWa1BlcUE
+INFO - updated row data Ok(1)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m

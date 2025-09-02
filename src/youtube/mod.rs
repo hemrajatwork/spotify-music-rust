@@ -6,9 +6,10 @@ use rocket::serde::json::Json;
 use reqwest;
 use rocket::Error;
 use rocket::form::validate::Len;
+use log::{info, error, debug, warn};
 
 pub async fn search_youtube(search_text:String, result_limit:i32) ->Result<(String, String), String>{
-    println!("start youtube search");
+    info!("start youtube search");
     let search_song = format!("song {}",search_text);
     let search_str = &*search_song;
     let url = format!(
@@ -26,15 +27,9 @@ pub fn parse_youtube_res<'a>(api_response:& 'a str, search_term:& 'a str)-> Opti
         for val in obj["items"].as_array().unwrap() {
             /*let etag = val.get("etag");*/
             for (item_index, item_val) in val.as_object().iter().enumerate() {
-                println!("{:?}\n**", item_val);
                 let video_id = item_val["id"]["videoId"].as_str().unwrap_or("video id not found");
-                println!("found video id {}", video_id);
-                let title = item_val["snippet"]["title"].as_str().expect("title not found");
-                if title.contains(search_term){
-                    return Some(video_id.to_string());
-                } else if item_index ==item_val.len() - 1{
-                    return Some(video_id.to_string());
-                }
+                info!("found video id {}", video_id);
+                return Some(video_id.to_string());
             }
         }
     }

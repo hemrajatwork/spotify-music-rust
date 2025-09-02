@@ -8,3 +8,5 @@ pub const YOUTUBE_LIST_API_COST:i32 = 100;
 pub const SUCCESS:&str ="success";
 
 pub const FAIL:&str ="failed";
+
+pub const YOUTUBE_URL:&str = "www.youtube.com/watch?v=";

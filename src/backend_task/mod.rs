@@ -2,7 +2,7 @@ use diesel::QueryResult;
 use super::youtube::{search_youtube, parse_youtube_res};
 use reqwest;
 use super::db_lib::{establish_connection, fetch_song_rows, insert_task_records,
-                    update_song_info};
+                    update_song_info, insert_song_youtube_detail};
 use super::constant::{YOUTUBE_TOKEN_LIMIT, YOUTUBE_LIST_API_COST, FAIL, SUCCESS};
 use rocket::tokio::{task, self};
 use futures::future::join_all;
@@ -12,7 +12,7 @@ use log::{info, error, debug, warn};
 
 pub async fn BackEndTask(){
     let mut pg_conn = establish_connection();
-    let limit: i32 = YOUTUBE_TOKEN_LIMIT/YOUTUBE_LIST_API_COST;
+    let youtube_api_limit: i32 = YOUTUBE_TOKEN_LIMIT/YOUTUBE_LIST_API_COST;
     info!("fetching songs from database");
     let result: QueryResult<Vec<(i32, String, String, String)>> =  fetch_song_rows(& mut pg_conn, None, Some(2), Some(false));
     info!("finished fetching songs from database");
@@ -42,7 +42,7 @@ pub async fn BackEndTask(){
                         let video_id:Option<String> = parse_youtube_res(&data.0, &data.1);
                         match video_id {
                             Some(video_id)=>{
-                                println!("song_id {},search_text {}, video_id {}", song_ids[i], data.0, video_id);
+                                debug!("song_id {},search_text {}, video_id {}", song_ids[i], data.1, video_id);
                                 song_youtube_detail.push(
                                     SongYouTubeDetail{id:None, song_id:song_ids[i], youtube_link: video_id, created_at:None});
                                 update_song_info(& mut pg_conn, song_ids[i])
@@ -53,13 +53,13 @@ pub async fn BackEndTask(){
                         }
                     },
                     Err(e) => {
-                        eprintln!("Error fetching data from search term {}: {}", i + 1, e);
+                        error!("Error fetching data from search term {}: {}", i + 1, e);
                         failure_flg = true;
                     },
                 }
             }
 
-            println!("All threads finished.");
+            info!("All threads finished.");
             if failure_flg {
                 task_status = FAIL.to_string();
             }
@@ -71,6 +71,7 @@ pub async fn BackEndTask(){
     }
     task_results.push(BackendTask{task_name:task_name, status:task_status});
     insert_task_records(& mut pg_conn, &task_results);
+    insert_song_youtube_detail(& mut pg_conn, &song_youtube_detail);
 }
 
 

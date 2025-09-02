@@ -61,7 +61,7 @@ pub mod spotify_schema {
     diesel::table! {
         spotify_schema.song_youtube_detail (id) {
             id -> Int4,
-            song_id -> Nullable<Int4>,
+            song_id -> Int4,
             youtube_link -> Varchar,
             created_at -> Nullable<Timestamp>,
         }
