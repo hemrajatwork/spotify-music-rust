@@ -104,7 +104,7 @@ pub struct SongInformation {
     pub youtube_video: bool,
 }
 
-#[derive(Queryable, Identifiable, Selectable, Serialize, Debug, PartialEq)]
+#[derive(Queryable, Identifiable, Selectable, Serialize, Debug, PartialEq, QueryableByName)]
 #[diesel(primary_key(song_id))]
 #[diesel(table_name = song_information)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
@@ -150,8 +150,8 @@ pub struct SongInformationBase {
     pub similar_song_3: String,
     pub similarity_score_3: f64,
     pub unique_id: String,
-    pub youtube_video: bool,
-    pub created_at: Option<SystemTime>
+    pub created_at: Option<SystemTime>,
+    pub youtube_video: bool
 }
 
 impl UniqueId for SongInformation{
@@ -197,7 +197,7 @@ mod NumerToBool{
     }
 }
 
-#[derive(Queryable, Identifiable, Associations, Selectable, Serialize, Debug, Insertable)]
+#[derive(Queryable, Identifiable, Associations, Selectable, Serialize, Debug, Insertable, QueryableByName)]
 #[diesel(belongs_to(SongInformationBase, foreign_key=song_id))]
 #[diesel(table_name = song_youtube_detail)]
 #[diesel(primary_key(id))]

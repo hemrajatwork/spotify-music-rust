@@ -12,7 +12,7 @@ use super::models::{SongInformation, SongInformationBase, UniqueId};
 //use diesel::r2d2::Pool;
 //use std::io::{Seek, SeekFrom};
 //use std::fs;
-use super::db_lib::{establish_connection, insert_song_records, fetch_song_rows};
+use super::db_lib::{establish_connection, insert_song_records, fetch_song_rows, fetch_song_youtube_data};
 use std::time::Instant;
 
 pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn Error>>{
@@ -51,18 +51,24 @@ pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn E
     Ok(())
 }
 
-pub fn get_song_data(song_ids:Option<&Vec<i32>>, limit:Option<i64>) -> QueryResult<Vec<(i32, String, String, String)>> {
+pub fn get_song_data(song_ids:Option<&Vec<i32>>, limit:Option<i64>, offset:Option<usize>) -> QueryResult<Vec<(i32, String, String, String)>> {
     let mut pg_connection:PgConnection =  establish_connection();
     let data: QueryResult<Vec<(i32, String, String, String)>> = fetch_song_rows(
-        &mut pg_connection, song_ids, limit, None);
+        &mut pg_connection, song_ids, limit, None, None);
     /*for row in data {
         println!("row: {:?}", row);
     }*/
     data
 }
 
-pub fn clean_data(){
-    
+pub fn get_song_list_with_video(limit:i64, offset:i64) -> Vec<(i32, String, String, String, Option<String>)> {
+    let mut pg_connection:PgConnection =  establish_connection();
+    let data: Vec<(i32, String, String, String, Option<String>)> =
+    fetch_song_youtube_data(&mut pg_connection, limit, offset);
+    /*for row in data {
+        println!("row: {:?}", row);
+    }*/
+    data
 }
 
 

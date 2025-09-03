@@ -5,6 +5,7 @@ use std::env;
 use std::error::Error;
 use super::models::{BackendTask, SongInformation, SongYouTubeDetail, SongInformationBase};
 use diesel::r2d2::ConnectionManager;
+use song_information::song_id as sinfo_song_id;
 use diesel::r2d2::Pool;
 use crate::schema::spotify_schema::{song_information::dsl::*, song_information, backend_task, song_youtube_detail, song_youtube_detail::dsl::*};
 use log::{info, error, debug, warn};
@@ -45,18 +46,17 @@ impl Default for CustomBool {
     }
 }
 
-pub fn fetch_song_youtube_data(conn: &mut PgConnection, limit:Option<i32>, offset:Option<i32>)-> Vec<(SongInformationBase, Option<SongYouTubeDetail>)>{
+pub fn fetch_song_youtube_data(conn: &mut PgConnection, limit:i64, offset:i64)-> Vec<(i32, String, String, String, Option<String>)>{
     let results = song_information::table
         .left_join(song_youtube_detail::table.on(song_information::song_id.eq(song_youtube_detail::song_id)))
-        .select(((song_information::song_id, song_information::artist,
-                  song_information::song), Option::<SongYouTubeDetail>::as_select())) // Select user and optional post
-        .load::<(SongInformationBase, Option<SongYouTubeDetail>)>(conn)
-        .expect("Error loading data");
+        .select((song_information::song_id, artist, song, emotion, youtube_link.nullable())).limit(limit).offset(offset)
+        .load::<(i32, String, String, String, Option<String>)>(conn)
+        .expect("Error loading song information and youtube data");
     results
 }
-pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, limit:Option<i64>, has_youtube_link:Option<bool>) -> QueryResult<Vec<(i32, String, String, String)>>{
+pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, limit:Option<i64>, offset:Option<i64>, has_youtube_link:Option<bool>) -> QueryResult<Vec<(i32, String, String, String)>>{
     /*let mut query = song_information::table.into_boxed();*/
-    let mut query = song_information.select((song_id, song, artist, emotion)).into_boxed();
+    let mut query = song_information.select((sinfo_song_id, song, artist, emotion)).into_boxed();
 
     match song_ids {
         Some(selected_song_ids )=>{
@@ -67,6 +67,18 @@ pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, limi
     match limit {
         Some(limit_records) => {
             query = query.limit(limit_records)
+        },
+        None => {}
+    }
+    match offset {
+        Some(offset_records) => {
+            query = query.offset(offset_records);
+        },
+        None => {}
+    }
+    match has_youtube_link {
+        Some(y) => {
+            query = query.filter(youtube_video.eq(true))
         },
         None => {}
     }

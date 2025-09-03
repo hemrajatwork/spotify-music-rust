@@ -14,7 +14,7 @@ pub async fn BackEndTask(){
     let mut pg_conn = establish_connection();
     let youtube_api_limit: i32 = YOUTUBE_TOKEN_LIMIT/YOUTUBE_LIST_API_COST;
     info!("fetching songs from database");
-    let result: QueryResult<Vec<(i32, String, String, String)>> =  fetch_song_rows(& mut pg_conn, None, Some(2), Some(false));
+    let result: QueryResult<Vec<(i32, String, String, String)>> =  fetch_song_rows(& mut pg_conn, None, Some(2), None, Some(false));
     info!("finished fetching songs from database");
     let task_name = "spotify_task".to_string();
     let mut failure_flg = false;

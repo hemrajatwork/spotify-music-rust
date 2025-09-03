@@ -14,7 +14,7 @@ mod constant;
 mod form_struct;
 mod backend_task;
 mod response_message;
-use crate::file_util::{read_file, get_song_data};
+use crate::file_util::{read_file, get_song_data, get_song_list_with_video};
 use crate::models::{SongInformation, SongInformationBase};
 use rocket::serde::json::Json;
 use youtube::{search_youtube, parse_youtube_res};
@@ -48,13 +48,19 @@ fn index() -> Template {
 fn get_song(song_id: i32) -> Json<Vec<(i32, String, String, String)>> {
     let mut song_ids:Vec<i32> = Vec::new();
     song_ids.push(song_id);
-    let data = get_song_data(Some(&song_ids), Some(5)).unwrap();
+    let data = get_song_data(Some(&song_ids), Some(5), None).unwrap();
     Json(data)
 }
 
-#[get("/all")]
-fn get_all_songs() -> Json<Vec<(i32, String, String, String)>> {
-    let data = get_song_data(None, Some(100)).unwrap();
+#[get("/all?<offset>&<limit>")]
+fn get_all_songs(offset:Option<usize>, limit:Option<usize>) -> Json<Vec<(i32, String, String, String)>> {
+    let data = get_song_data(None, Some(100), None).unwrap();
+    Json(data)
+}
+
+#[get("/song_list?<offset>&<limit>")]
+fn get_song_list(offset:i64, limit:i64) -> Json<Vec<(i32, String, String, String, Option<String>)>> {
+    let data = get_song_list_with_video(offset, limit);
     Json(data)
 }
 #[get("/search/<search_text>/<limit>")]
