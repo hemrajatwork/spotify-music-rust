@@ -12,7 +12,8 @@ use super::models::{SongInformation, SongInformationBase, UniqueId};
 //use diesel::r2d2::Pool;
 //use std::io::{Seek, SeekFrom};
 //use std::fs;
-use super::db_lib::{establish_connection, insert_song_records, fetch_song_rows, fetch_song_youtube_data};
+use super::db_lib::{establish_connection, insert_song_records, fetch_song_rows,
+                    fetch_song_youtube_data, YoutubeData, count_unique_author_and_category};
 use std::time::Instant;
 
 pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn Error>>{
@@ -61,14 +62,18 @@ pub fn get_song_data(song_ids:Option<&Vec<i32>>, limit:Option<i64>, offset:Optio
     data
 }
 
-pub fn get_song_list_with_video(limit:i64, offset:i64) -> Vec<(i32, String, String, String, Option<String>)> {
+pub fn get_song_list_with_video(limit:i64, offset:i64) -> Vec<YoutubeData> {
     let mut pg_connection:PgConnection =  establish_connection();
-    let data: Vec<(i32, String, String, String, Option<String>)> =
+    let data: Vec<YoutubeData> =
     fetch_song_youtube_data(&mut pg_connection, limit, offset);
-    /*for row in data {
-        println!("row: {:?}", row);
-    }*/
+    info!("{:?}", data);
     data
+}
+
+pub fn get_unique_count() -> (i64, i64, i64, i64) {
+    let mut pg_connection:PgConnection =  establish_connection();
+    let result = count_unique_author_and_category(&mut pg_connection);
+    result
 }
 
 

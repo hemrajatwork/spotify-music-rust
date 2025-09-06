@@ -12,9 +12,10 @@ use log::{info, error, debug, warn};
 
 pub async fn BackEndTask(){
     let mut pg_conn = establish_connection();
-    let youtube_api_limit: i32 = YOUTUBE_TOKEN_LIMIT/YOUTUBE_LIST_API_COST;
-    info!("fetching songs from database");
-    let result: QueryResult<Vec<(i32, String, String, String)>> =  fetch_song_rows(& mut pg_conn, None, Some(2), None, Some(false));
+    let youtube_api_limit_i32: i32 = YOUTUBE_TOKEN_LIMIT/YOUTUBE_LIST_API_COST;
+    let youtube_api_limit_i64: i64 = youtube_api_limit_i32 as i64;
+    info!("fetching songs from database, youtube limit {}", youtube_api_limit_i64);
+    let result: QueryResult<Vec<(i32, String, String, String)>> =  fetch_song_rows(& mut pg_conn, None, Some(youtube_api_limit_i64), Some(0), Some(false));
     info!("finished fetching songs from database");
     let task_name = "spotify_task".to_string();
     let mut failure_flg = false;
@@ -28,7 +29,7 @@ pub async fn BackEndTask(){
             let mut song_ids = vec![];
             let mut futures: Vec<_> = vec![];
             for row in song_info {
-                let search_text:String = row.1;
+                let search_text:String = format!("{} {} song" ,row.1, row.2);
                 info!("search text: {} , song_id: {}", search_text, row.0);
                 song_ids.push(row.0);
                 futures.push(search_youtube(search_text, 1))

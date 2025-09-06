@@ -14,7 +14,7 @@ mod constant;
 mod form_struct;
 mod backend_task;
 mod response_message;
-use crate::file_util::{read_file, get_song_data, get_song_list_with_video};
+use crate::file_util::{read_file, get_song_data, get_song_list_with_video, get_unique_count};
 use crate::models::{SongInformation, SongInformationBase};
 use rocket::serde::json::Json;
 use youtube::{search_youtube, parse_youtube_res};
@@ -25,6 +25,7 @@ use rocket::form::{Form};
 use rocket_dyn_templates::{Template, context};
 use rocket::fs::FileServer;
 use backend_task::{BackEndTask};
+use crate::db_lib::YoutubeData;
 
 #[get("/")]
 fn index() -> Template {
@@ -58,10 +59,18 @@ fn get_all_songs(offset:Option<usize>, limit:Option<usize>) -> Json<Vec<(i32, St
     Json(data)
 }
 
-#[get("/song_list?<offset>&<limit>")]
-fn get_song_list(offset:i64, limit:i64) -> Json<Vec<(i32, String, String, String, Option<String>)>> {
-    let data = get_song_list_with_video(offset, limit);
-    Json(data)
+#[get("/list?<offset>&<limit>")]
+fn get_song_list(offset:i64, limit:i64) -> Template {
+    let data = get_song_list_with_video(limit, offset);
+    let result = get_unique_count();
+    let mut total_song:i64 = result.0;
+    let mut total_youtube:i64 = result.3;
+    let mut total_artist:i64 = result.1;
+    let mut total_album:i64 = result.2;
+    Template::render ("home", context! {data: data, pagename: "Home",
+        song_total: total_song, total_artist: total_artist, total_album: total_album,
+        total_youtube_link: total_youtube,
+    pagedetail: "Spotify Music Data"})
 }
 #[get("/search/<search_text>/<limit>")]
 async fn get_youtube_video(search_text:&str, limit:i32)->Json<APIResponse<String>>{
@@ -103,12 +112,13 @@ async fn main() -> Result<(), rocket::Error> {
 
     rocket::build()
         .mount("/song", routes![get_song])
+        .mount("/song", routes![get_song_list] )
         .mount("/song", routes![get_all_songs])
         .mount("/song", routes![get_youtube_video])
         .mount("/song", routes![user_search])
         .mount("/", routes![index])
         .mount("/", routes![fetch_youtube_link])
-        .mount("/static", FileServer::from("static"))
+        .mount("/", FileServer::from("static/"))
         .attach(Template::fairing())
         .launch()
         .await?;

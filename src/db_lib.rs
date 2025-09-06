@@ -9,6 +9,8 @@ use song_information::song_id as sinfo_song_id;
 use diesel::r2d2::Pool;
 use crate::schema::spotify_schema::{song_information::dsl::*, song_information, backend_task, song_youtube_detail, song_youtube_detail::dsl::*};
 use log::{info, error, debug, warn};
+use serde::Serialize;
+use diesel::dsl::{count_star, count_distinct};
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
@@ -46,11 +48,20 @@ impl Default for CustomBool {
     }
 }
 
-pub fn fetch_song_youtube_data(conn: &mut PgConnection, limit:i64, offset:i64)-> Vec<(i32, String, String, String, Option<String>)>{
+#[derive(Queryable, Serialize, Debug)]
+pub struct YoutubeData{
+    song_id: i32,
+    artist: String,
+    song: String,
+    emotion: String,
+    video_id: Option<String>,
+}
+pub fn fetch_song_youtube_data(conn: &mut PgConnection, limit:i64, offset:i64)-> Vec<YoutubeData>{
+    info!("offset {}, limit {}", offset, limit);
     let results = song_information::table
         .left_join(song_youtube_detail::table.on(song_information::song_id.eq(song_youtube_detail::song_id)))
         .select((song_information::song_id, artist, song, emotion, youtube_link.nullable())).limit(limit).offset(offset)
-        .load::<(i32, String, String, String, Option<String>)>(conn)
+        .load::<YoutubeData>(conn)
         .expect("Error loading song information and youtube data");
     results
 }
@@ -78,7 +89,7 @@ pub fn fetch_song_rows(conn: &mut PgConnection, song_ids:Option<&Vec<i32>>, limi
     }
     match has_youtube_link {
         Some(y) => {
-            query = query.filter(youtube_video.eq(true))
+            query = query.filter(youtube_video.eq(y))
         },
         None => {}
     }
@@ -91,6 +102,15 @@ pub fn insert_task_records(conn: &mut PgConnection, info: &Vec<BackendTask>) -> 
         .values(info)
         .execute(conn).unwrap();
     Ok(rows_inserted)
+}
+
+
+pub fn count_unique_author_and_category(conn: &mut PgConnection) -> (i64, i64, i64, i64) {
+    let unique_song_count = song_information.select(count_distinct(song)).first(conn).unwrap();
+    let unique_artist_count = song_information.select(count_distinct(artist)).first(conn).unwrap();
+    let unique_album_count = song_information.select(count_distinct(album)).first(conn).unwrap();
+    let unique_youtube_count = song_youtube_detail.select(count_distinct(youtube_link)).first(conn).unwrap();
+    (unique_song_count, unique_artist_count, unique_album_count, unique_youtube_count)
 }
 
 pub fn insert_song_youtube_detail(conn: &mut PgConnection, info: &Vec<SongYouTubeDetail>) -> QueryResult<usize> {

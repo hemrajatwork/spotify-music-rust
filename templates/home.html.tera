@@ -1,37 +1,99 @@
 {% extends "base" %}
 {% block content %}
-<div class="container-fluid">
-     <div class="row">
-      <div class="col-sm-2 border-2">
-        <nav class="navbar bg-light navbar-light">
-           <div class="container-fluid">
-             <a class="navbar-brand" href="/">HOME</a>
-               <ul class="navbar-nav">
-                 <li class="nav-item">
-                   <a class="nav-link" href="#">Music Library</a>
-                 </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#">Analysis</a>
-                  </li>
-                 <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Rust Code</a>
-                   <ul class="dropdown-menu">
-                     <li><a class="dropdown-item" href="#">Rocket Framework</a></li>
-                     <li><a class="dropdown-item" href="#">Parse CSV data</a></li>
-                     <li><a class="dropdown-item" href="#">Postgres Storage</a></li>
-                     <li><a class="dropdown-item" href="#">Youtube API</a></li>
-                     <li><a class="dropdown-item" href="#">Threading & OOPS</a></li>
-                   </ul>
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link" href="#">Resume</a>
-                 </li>
-               </ul>
-           </div>
-         </nav>
-
-      </div>
-      <div class="col-sm-10 border-2">.col-sm-3</div>
-    </div>
+ <div class="row">
+<div class="ms-3">
+  <h3 class="mb-0 h4 font-weight-bolder">{{ pagename }}</h3>
+  <p class="mb-4">
+    {{ pagedetail }}
+  </p>
 </div>
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+  <div class="card">
+    <div class="card-header p-2 ps-3">
+      <div class="d-flex justify-content-between">
+        <div>
+          <p class="text-sm mb-0 text-capitalize">Total Song</p>
+          <h4 class="mb-0">{{ song_total }}</h4>
+        </div>
+        <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+          <i class="material-symbols-rounded opacity-10">weekend</i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+  <div class="card">
+    <div class="card-header p-2 ps-3">
+      <div class="d-flex justify-content-between">
+        <div>
+          <p class="text-sm mb-0 text-capitalize">Total artist</p>
+          <h4 class="mb-0">{{ total_artist }}</h4>
+        </div>
+        <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+          <i class="material-symbols-rounded opacity-10">person</i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+  <div class="card">
+    <div class="card-header p-2 ps-3">
+      <div class="d-flex justify-content-between">
+        <div>
+          <p class="text-sm mb-0 text-capitalize">Total album</p>
+          <h4 class="mb-0">{{ total_album }}</h4>
+        </div>
+        <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+          <i class="material-symbols-rounded opacity-10">leaderboard</i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xl-3 col-sm-6">
+  <div class="card">
+    <div class="card-header p-2 ps-3">
+      <div class="d-flex justify-content-between">
+        <div>
+          <p class="text-sm mb-0 text-capitalize">Total Youtube Link</p>
+          <h4 class="mb-0">{{ total_youtube_link }}</h4>
+        </div>
+        <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+          <i class="material-symbols-rounded opacity-10">weekend</i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% set end_row = 0 %}
+{% for row in data %}
+    {% set start_row = loop.index0 % 3 %}
+    {% if start_row == 0 or loop.index0 == 0 %}
+    {% set end_row = 0 %}
+    <h2>start</h2>
+    <div class="row">
+    {% endif %}
+    {% set end_row = end_row + 1 %}
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="mb-0 ">{{ row.song }}</h6>
+              <p class="text-sm ">{{ row.artist }}</p>
+              <div class="pe-2">
+                <div class="chart">
+                  <iframe src="https://www.youtube.com/embed/{{ row.video_id }}"> </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% if end_row == 3 %}
+    <h2>end</h2>
+    </div>
+    {% endif %}
+
+{% endfor %}
 {% endblock content %}
