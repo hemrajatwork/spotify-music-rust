@@ -11,7 +11,38 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
-            hello
+        <pre>
+            We are using rocket framework to create rest api endpoints and tera crate to render
+            dynamic templates.
+            Rocket framework crate version is 0.5.1 and tera carte vesion is 0.2.0.
+            Main Features used from rocket framework is
+            1) routing and request handling
+            2) Fairing
+            3) Template rendering
+            4) Json support (REST API)
+
+            endpoints avaliable in the project are as follows:
+        </pre>
+        <pre>
+            <code>
+                rocket::build()
+                .mount("/song", routes![get_song])
+                .mount("/", routes![home] )
+                .mount("/", routes![get_rocket_framework_code] )
+                .mount("/", routes![get_csv_parser_code] )
+                .mount("/", routes![get_postgres_storage_code] )
+                .mount("/", routes![get_threading_code] )
+                .mount("/", routes![get_resume] )
+                .mount("/song", routes![get_all_songs])
+                .mount("/song", routes![get_youtube_video])
+                .mount("/song", routes![user_search])
+                .mount("/", routes![index])
+                .mount("/", routes![fetch_youtube_link])
+                .mount("/", FileServer::from("static/"))
+                .attach(Template::fairing())
+            </code>
+        </pre>
+
         </div>
       </div>
     </div>

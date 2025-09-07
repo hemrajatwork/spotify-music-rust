@@ -3838,3 +3838,815 @@ INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
 ERROR - No matching routes for [32mGET[0m [34m/css/dashboard-free.css.map[0m.
 WARN - No [1;34m404[0m catcher registered. Using Rocket default.
 INFO - [32mResponse succeeded.[0m
+INFO - Change detected: reloading templates.
+INFO - [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+WARN - Remote left: client disconnect before response started.
+INFO - [32mGET[0m [34m/css/dashboard-free.css.map[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/css/dashboard-free.css.map[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/song/templates/rocket_framework.html[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/song/templates/rocket_framework.html[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mindex[0m[36m)[0m [32mGET[0m [34m/[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song_list[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/list?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/song/list?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mget_song_list[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/list?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/apple-icon.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/img/favicon.png[0m [33mimage/avif[0m:
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mindex[0m[36m)[0m [32mGET[0m [34m/[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song_list[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/list?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/song/list?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mget_song_list[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/list?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/apple-icon.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+WARN - Remote left: client disconnect before response started.
+INFO - Change detected: reloading templates.
+INFO - [32mGET[0m [34m/song/list?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mget_song_list[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/list?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - [32mResponse succeeded.[0m
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mindex[0m[36m)[0m [32mGET[0m [34m/[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song_list[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/list?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/song/templates/rocket_framework.html[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/song/templates/rocket_framework.html[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mindex[0m[36m)[0m [32mGET[0m [34m/[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song_list[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/list?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/song/list?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mget_song_list[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/list?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/song/templates/rocket_framework.html[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/song/templates/rocket_framework.html[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/song/list?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mget_song_list[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/list?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+WARN - Remote left: channel closed.
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mindex[0m[36m)[0m [32mGET[0m [34m/[0m
+INFO - [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_resume[0m[36m)[0m [32mGET[0m [34m/resume[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mget_threading_code[0m[36m)[0m [32mGET[0m [34m/threading[0m
+INFO - [36m([0m[39mget_csv_parser_code[0m[36m)[0m [32mGET[0m [34m/csv_parser[0m
+INFO - [36m([0m[39mget_rocket_framework_code[0m[36m)[0m [32mGET[0m [34m/rocket_framework[0m
+INFO - [36m([0m[39mget_postgres_storage_code[0m[36m)[0m [32mGET[0m [34m/postgres_storage[0m
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/song/list?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+WARN - Parameter guard `song_id: i32` is forwarding: "list".
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m422 Unprocessable Entity[0m)
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/song/list?offset=0&limit=10[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/home/list?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/home/list?offset=0&limit=10[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/list?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/list?offset=0&limit=10[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/home?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/apple-icon.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/img/favicon.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/templates/rocket_framework.html[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/templates/rocket_framework.html[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mindex[0m[36m)[0m [32mGET[0m [34m/[0m
+INFO - [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_resume[0m[36m)[0m [32mGET[0m [34m/resume[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mget_threading_code[0m[36m)[0m [32mGET[0m [34m/threading[0m
+INFO - [36m([0m[39mget_csv_parser_code[0m[36m)[0m [32mGET[0m [34m/csv_parser[0m
+INFO - [36m([0m[39mget_rocket_framework_code[0m[36m)[0m [32mGET[0m [34m/rocket_framework[0m
+INFO - [36m([0m[39mget_postgres_storage_code[0m[36m)[0m [32mGET[0m [34m/postgres_storage[0m
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+WARN - Remote left: client disconnect before response started.
+INFO - [32mGET[0m [34m/templates/rocket_framework.html[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/templates/rocket_framework.html[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/home?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+WARN - Remote left: channel closed.
+INFO - [32mGET[0m [34m/home?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/apple-icon.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+WARN - Remote left: client disconnect before response started.
+INFO - [32mGET[0m [34m/home?offset=0&limit=10[0m:
+INFO - Matched: [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [32mGET[0m [34m/css/dashboard-free.css.map[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/css/dashboard-free.css.map[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/rocket_framework.html[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/rocket_framework.html[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mindex[0m[36m)[0m [32mGET[0m [34m/[0m
+INFO - [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_resume[0m[36m)[0m [32mGET[0m [34m/resume[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mget_threading_code[0m[36m)[0m [32mGET[0m [34m/threading[0m
+INFO - [36m([0m[39mget_csv_parser_code[0m[36m)[0m [32mGET[0m [34m/csv_parser[0m
+INFO - [36m([0m[39mget_rocket_framework_code[0m[36m)[0m [32mGET[0m [34m/rocket_framework[0m
+INFO - [36m([0m[39mget_postgres_storage_code[0m[36m)[0m [32mGET[0m [34m/postgres_storage[0m
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/css/dashboard-free.css.map[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/css/dashboard-free.css.map[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/home?offset=0&limit=10[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - offset 0, limit 10
+INFO - [YoutubeData { song_id: 1004, artist: "!!!", song: "Freedom 15", emotion: "joy", video_id: Some("RLfbcfLfQms") }, YoutubeData { song_id: 3844, artist: "2Pac", song: "All Out/Die Slow Original Version", emotion: "fear", video_id: Some("rvQJSaif3pA") }, YoutubeData { song_id: 3845, artist: "2Pac", song: "Tupacs Letter to Sister Souljah", emotion: "joy", video_id: Some("fyoKQgvcOy0") }, YoutubeData { song_id: 3853, artist: "2Pac", song: "Starry Night", emotion: "joy", video_id: Some("80Mo0rvC9Tw") }, YoutubeData { song_id: 3854, artist: "2Pac", song: "Lil Homies Original Version", emotion: "anger", video_id: Some("R1Jt85fiDKI") }, YoutubeData { song_id: 3967, artist: "2Pac,Mýa", song: "Fair Xchange Mya Remix", emotion: "fear", video_id: Some("3KsHa4nSQOg") }, YoutubeData { song_id: 3968, artist: "2Pac,Nas,J. Phoenix", song: "Thugz Mansion Nas Acoustic", emotion: "anger", video_id: Some("qDa_U_jBVZA") }, YoutubeData { song_id: 3969, artist: "2Pac,Nate Dogg", song: "Skandalouz", emotion: "anger", video_id: Some("eHohNsFa9Sw") }, YoutubeData { song_id: 3970, artist: "2Pac,Nate Dogg", song: "Thugs Get Lonely Too", emotion: "anger", video_id: Some("9DbTWCgQ9uo") }, YoutubeData { song_id: 3971, artist: "2Pac,Nipsey Hussle,Young Dre", song: "International", emotion: "anger", video_id: Some("QVzUc5l--zQ") }]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/dashboard-free.css.map[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/css/dashboard-free.css.map[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/rocket_framework[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mget_rocket_framework_code[0m[36m)[0m [32mGET[0m [34m/rocket_framework[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/dashboard-free.css.map[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/css/dashboard-free.css.map[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m

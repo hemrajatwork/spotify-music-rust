@@ -57,7 +57,7 @@
     <div class="card-header p-2 ps-3">
       <div class="d-flex justify-content-between">
         <div>
-          <p class="text-sm mb-0 text-capitalize">Total Youtube Link</p>
+          <p class="text-sm mb-0 text-capitalize">Total Fetched Youtube Link</p>
           <h4 class="mb-0">{{ total_youtube_link }}</h4>
         </div>
         <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
@@ -73,7 +73,6 @@
     {% set start_row = loop.index0 % 3 %}
     {% if start_row == 0 or loop.index0 == 0 %}
     {% set end_row = 0 %}
-    <h2>start</h2>
     <div class="row">
     {% endif %}
     {% set end_row = end_row + 1 %}
@@ -91,7 +90,6 @@
           </div>
         </div>
     {% if end_row == 3 %}
-    <h2>end</h2>
     </div>
     {% endif %}
 

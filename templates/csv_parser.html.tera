@@ -1,0 +1,162 @@
+{% extends "base" %}
+{% block content %}
+ <div class="row">
+<div class="ms-3">
+  <h3 class="mb-0 h4 font-weight-bolder">{{ pagename }}</h3>
+  <p class="mb-4">
+    {{ pagedetail }}
+  </p>
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+        <pre>
+            We are using serde library to parse csv file which helps to seriliaze and deseiliaze
+            data. serde version used: "1". Creating struct to match csv file:
+        </pre>
+        <pre>
+            <code>
+            pub struct SongInformation {
+                #[serde(alias = "Artist(s)")]
+                pub artist: String,
+                pub song: String,
+                pub text: String,
+                #[serde(alias = "Length")]
+                pub length: String,
+                pub emotion: String,
+                #[serde(alias = "Genre")]
+                pub genre: String,
+                #[serde(alias = "Album")]
+                pub album: String,
+                #[serde(alias = "Release Date")]
+                pub release_date: String,
+                #[serde(alias = "Key")]
+                pub key: String,
+                #[serde(alias = "Tempo")]
+                pub tempo: f64,
+                #[serde(alias = "Loudness (db)")]
+                pub loudness: f64,
+                #[serde(alias = "Time signature")]
+                pub time_signature: String,
+                #[serde(alias = "Explicit")]
+                pub explicit: String,
+                #[serde(alias = "Popularity")]
+                pub popularity: i32,
+                #[serde(alias = "Energy")]
+                pub energy: i32,
+                #[serde(alias = "Danceability")]
+                pub danceability: i32,
+                #[serde(alias = "Positiveness")]
+                pub positiveness: i32,
+                #[serde(alias = "Speechiness")]
+                pub speechiness: i32,
+                #[serde(alias = "Liveness")]
+                pub liveness: i32,
+                #[serde(alias = "Acousticness")]
+                pub acousticness: i32,
+                #[serde(alias = "Instrumentalness")]
+                pub instrumentalness: i32,
+                #[serde(alias = "Good for Party")]
+                #[serde(with = "NumerToBool")]
+                pub good_for_party: bool,
+                #[serde(with = "NumerToBool")]
+                #[serde(alias = "Good for Work/Study")]
+                pub good_for_work: bool,
+                #[serde(with = "NumerToBool")]
+                #[serde(alias = "Good for Relaxation/Meditation")]
+                pub good_for_relaxation: bool,
+                #[serde(with = "NumerToBool")]
+                #[serde(alias = "Good for Exercise")]
+                pub good_for_exercise: bool,
+                #[serde(with = "NumerToBool")]
+                #[serde(alias = "Good for Running")]
+                pub good_for_running: bool,
+                #[serde(with = "NumerToBool")]
+                #[serde(alias = "Good for Yoga/Stretching")]
+                pub good_for_yoga: bool,
+                #[serde(with = "NumerToBool")]
+                #[serde(alias = "Good for Driving")]
+                pub good_for_driving: bool,
+                #[serde(with = "NumerToBool")]
+                #[serde(alias = "Good for Social Gatherings")]
+                pub good_for_social_gatherings: bool,
+                #[serde(with = "NumerToBool")]
+                #[serde(alias = "Good for Morning Routine")]
+                pub good_for_morning_routine: bool,
+                #[serde(alias = "Similar Artist 1")]
+                pub similar_artist_1: String,
+                #[serde(alias = "Similar Song 1")]
+                pub similar_song_1: String,
+                #[serde(alias = "Similarity Score 1")]
+                pub similarity_score_1: f64,
+                #[serde(alias = "Similar Artist 2")]
+                pub similar_artist_2: String,
+                #[serde(alias = "Similar Song 2")]
+                pub similar_song_2: String,
+                #[serde(alias = "Similarity Score 2")]
+                pub similarity_score_2: f64,
+                #[serde(alias = "Similar Artist 3")]
+                pub similar_artist_3: String,
+                #[serde(alias = "Similar Song 3")]
+                pub similar_song_3: String,
+                #[serde(alias = "Similarity Score 3")]
+                pub similarity_score_3: f64,
+                #[serde(skip_serializing)]
+                #[serde(skip_deserializing)]
+                pub unique_id: String,
+                #[serde(skip_serializing)]
+                #[serde(skip_deserializing)]
+                pub youtube_video: bool,
+            }
+
+            </code>
+        </pre>
+        <pre>
+            Write rust code to parse csv file and read 500 records in a batch.
+        </pre>
+        <pre>
+            <code>
+                pub fn read_file<'a>(file_path:PathBuf, _has_header:bool) ->Result<(), Box<dyn Error>>{
+                    let mut rdr = csv::Reader::from_path(file_path)?;
+                    let values = rdr.deserialize();
+
+                    let start_insert = Instant::now();
+                    let batch_size:usize = 500;
+                    let mut pg_connection:PgConnection =  establish_connection();
+                    let mut rows:Vec<SongInformation> = Vec::with_capacity(batch_size);
+                    for (line_num, line) in values.enumerate() {
+
+                        if line_num == 0 {
+                            continue;
+                        }
+
+                        println!("Reading line number: {}", line_num);
+                        let mut record: SongInformation = line?;
+                        println!(" song record: {}", record.artist);
+                        record.unique_id = record.get_unique_id();
+                        record.youtube_video = false;
+                        //println!("{:?}", record);
+                        rows.push(record);
+                        if rows.len() == batch_size{
+                            insert_song_records(&mut pg_connection, &rows)?;
+                            rows.clear();
+                        }
+
+                    }
+                    if !rows.is_empty(){
+                        insert_song_records(&mut pg_connection, &rows)?;
+                    }
+                    let duration = start_insert.elapsed();
+                    println!("Elapsed time: {:?}", duration);
+                    println!("Elapsed seconds: {:.2}", duration.as_secs());
+                    Ok(())
+                }
+
+            </code>
+        </pre>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

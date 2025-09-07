@@ -108,7 +108,7 @@ pub fn insert_task_records(conn: &mut PgConnection, info: &Vec<BackendTask>) -> 
 pub fn count_unique_author_and_category(conn: &mut PgConnection) -> (i64, i64, i64, i64) {
     let unique_song_count = song_information.select(count_distinct(song)).first(conn).unwrap();
     let unique_artist_count = song_information.select(count_distinct(artist)).first(conn).unwrap();
-    let unique_album_count = song_information.select(count_distinct(album)).first(conn).unwrap();
+    let unique_album_count = song_information.select(count_distinct(album )).first(conn).unwrap();
     let unique_youtube_count = song_youtube_detail.select(count_distinct(youtube_link)).first(conn).unwrap();
     (unique_song_count, unique_artist_count, unique_album_count, unique_youtube_count)
 }

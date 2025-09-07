@@ -59,8 +59,8 @@ fn get_all_songs(offset:Option<usize>, limit:Option<usize>) -> Json<Vec<(i32, St
     Json(data)
 }
 
-#[get("/list?<offset>&<limit>")]
-fn get_song_list(offset:i64, limit:i64) -> Template {
+#[get("/home?<offset>&<limit>")]
+fn home(offset:i64, limit:i64) -> Template {
     let data = get_song_list_with_video(limit, offset);
     let result = get_unique_count();
     let mut total_song:i64 = result.0;
@@ -71,6 +71,41 @@ fn get_song_list(offset:i64, limit:i64) -> Template {
         song_total: total_song, total_artist: total_artist, total_album: total_album,
         total_youtube_link: total_youtube,
     pagedetail: "Spotify Music Data"})
+}
+#[get("/rocket_framework")]
+fn get_rocket_framework_code() -> Template{
+    Template::render("rocket_framework", context!{pagename: "Rocket Framework",
+        pagedetail: "code rocket framework"})
+}
+
+#[get("/csv_parser")]
+fn get_csv_parser_code() -> Template{
+    Template::render("csv_parser", context!{pagename: "CSV Parser",
+        pagedetail: "code csv parser"})
+}
+
+#[get("/postgres_storage")]
+fn get_postgres_storage_code() -> Template{
+    Template::render("postgres_storage", context!{pagename: "Postgres Storage",
+        pagedetail: "code postgres storage"})
+}
+
+#[get("/youtube_api")]
+fn get_youtube_api_code() -> Template{
+    Template::render("youtube_api", context!{pagename: "Youtube API",
+        pagedetail: "Code youtube api"})
+}
+
+#[get("/threading")]
+fn get_threading_code() -> Template{
+    Template::render("threading", context!{pagename: "Threading & Async",
+        pagedetail: "threading & async"})
+}
+
+#[get("/resume")]
+fn get_resume() -> Template{
+    Template::render("resume", context!{pagename: "Resume",
+        pagedetail: "resume"})
 }
 #[get("/search/<search_text>/<limit>")]
 async fn get_youtube_video(search_text:&str, limit:i32)->Json<APIResponse<String>>{
@@ -112,7 +147,12 @@ async fn main() -> Result<(), rocket::Error> {
 
     rocket::build()
         .mount("/song", routes![get_song])
-        .mount("/song", routes![get_song_list] )
+        .mount("/", routes![home] )
+        .mount("/", routes![get_rocket_framework_code] )
+        .mount("/", routes![get_csv_parser_code] )
+        .mount("/", routes![get_postgres_storage_code] )
+        .mount("/", routes![get_threading_code] )
+        .mount("/", routes![get_resume] )
         .mount("/song", routes![get_all_songs])
         .mount("/song", routes![get_youtube_video])
         .mount("/song", routes![user_search])

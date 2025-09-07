@@ -1,0 +1,81 @@
+{% extends "base" %}
+{% block content %}
+ <div class="row">
+<div class="ms-3">
+  <h3 class="mb-0 h4 font-weight-bolder">{{ pagename }}</h3>
+  <p class="mb-4">
+    {{ pagedetail }}
+  </p>
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+        <pre>
+            We are using diesel crate to do CRUD operation with postgresql database.
+            Diesel crate version being used is "2.2.0".
+            Create models to use diesel ORM:
+            1) SongInformationBase model - used to store raw data from csv file
+            2) SongYouTubeDetail model - stored fetched youtube video id
+            3) BackendTaskBase model - store status of backend task in our case store
+             status of search youtube api and
+        </pre>
+        <pre>
+            <code>
+                #[derive(Queryable, Identifiable, Selectable, Serialize, Debug, PartialEq, QueryableByName)]
+                #[diesel(primary_key(song_id))]
+                #[diesel(table_name = song_information)]
+                #[diesel(check_for_backend(diesel::pg::Pg))]
+                pub struct SongInformationBase {
+                    pub song_id: i32,
+                    pub artist: String,
+                    pub song: String,
+                    pub text: String,
+                    pub length: String,
+                    pub emotion: String,
+                    pub genre: String,
+                    pub album: String,
+                    pub release_date: String,
+                    pub key: String,
+                    pub tempo: f64,
+                    pub loudness: f64,
+                    pub time_signature: String,
+                    pub explicit: String,
+                    pub popularity: i32,
+                    pub energy: i32,
+                    pub danceability: i32,
+                    pub positiveness: i32,
+                    pub speechiness: i32,
+                    pub liveness: i32,
+                    pub acousticness: i32,
+                    pub instrumentalness: i32,
+                    pub good_for_party: bool,
+                    pub good_for_work: bool,
+                    pub good_for_relaxation: bool,
+                    pub good_for_exercise: bool,
+                    pub good_for_running: bool,
+                    pub good_for_yoga: bool,
+                    pub good_for_driving: bool,
+                    pub good_for_social_gatherings: bool,
+                    pub good_for_morning_routine: bool,
+                    pub similar_artist_1: String,
+                    pub similar_song_1: String,
+                    pub similarity_score_1: f64,
+                    pub similar_artist_2: String,
+                    pub similar_song_2: String,
+                    pub similarity_score_2: f64,
+                    pub similar_artist_3: String,
+                    pub similar_song_3: String,
+                    pub similarity_score_3: f64,
+                    pub unique_id: String,
+                    pub created_at: Option<SystemTime>,
+                    pub youtube_video: bool
+                }
+            </code>
+        </pre>
+
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}
