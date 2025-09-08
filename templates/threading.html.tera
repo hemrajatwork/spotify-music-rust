@@ -1,0 +1,60 @@
+{% extends "base" %}
+{% block content %}
+ <div class="row">
+<div class="ms-3">
+  <h3 class="mb-0 h4 font-weight-bolder">{{ pagename }}</h3>
+  <p class="mb-4">
+    {{ pagedetail }}
+  </p>
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+        <pre>
+            We are using asynchornous API calls to fetch youtube video id.
+            Crate used are reqwest - for call to youtube API3
+            futures - for aysnc call and wait for async calls to finish using join_all
+        </pre>
+        <pre>
+            <code>
+                /* retrive data from table stored by parsing csv file */
+                for row in song_info {
+                    let search_text:String = format!("{} {} song" ,row.1, row.2);
+                    info!("search text: {} , song_id: {}", search_text, row.0);
+                    song_ids.push(row.0);
+                    futures.push(search_youtube(search_text, 1))
+                };
+                let results = join_all(futures).await;
+                /* loop over response and save in database video id */
+                for (i, api_response) in results.into_iter().enumerate() {
+
+                    match api_response {
+                        Ok(data) => {
+                            let video_id:Option<String> = parse_youtube_res(&data.0, &data.1);
+                            match video_id {
+                                Some(video_id)=>{
+                                    debug!("song_id {},search_text {}, video_id {}", song_ids[i], data.1, video_id);
+                                    song_youtube_detail.push(
+                                        SongYouTubeDetail{id:None, song_id:song_ids[i], youtube_link: video_id, created_at:None});
+                                    update_song_info(& mut pg_conn, song_ids[i])
+                                }
+                                None => {
+                                    info!("Not found video id for search_text {}", data.1);
+                                }
+                            }
+                        },
+                        Err(e) => {
+                            error!("Error fetching data from search term {}: {}", i + 1, e);
+                            failure_flg = true;
+                        },
+                    }
+                }
+            </code>
+        </pre>
+
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

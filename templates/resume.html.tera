@@ -1,0 +1,21 @@
+{% extends "base" %}
+{% block content %}
+ <div class="row">
+<div class="ms-3">
+  <h3 class="mb-0 h4 font-weight-bolder">{{ pagename }}</h3>
+  <p class="mb-4">
+    {{ pagedetail }}
+  </p>
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+        <pre>
+                <embed src="data/HemrajSurti.pdf" type="application/pdf" width="100%" height="600px" />
+        </pre>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends "base" %}
+{% block content %}
+ <div class="row">
+<div class="ms-3">
+  <h3 class="mb-0 h4 font-weight-bolder">{{ pagename }}</h3>
+  <p class="mb-4">
+    {{ pagedetail }}
+  </p>
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+        <pre>
+            We are using youtube API - https://www.googleapis.com/youtube/v3 to search song name
+            and fetch song video id , which will be used to display youtube video on the
+            home page. create two functions one to fetch youtube video id and other to parse
+            API response and fetch video id. Rust code is as below:
+        </pre>
+        <pre>
+            <code>
+                pub async fn search_youtube(search_text:String, result_limit:i32) ->Result<(String, String), String>{
+                    info!("start youtube search - {}", search_text);
+                    let url = format!(
+                        "{}/search?part=snippet&q={}&maxResults={}&key={}&type=video&videoDuration=short&videoEmbeddable=true",
+                        YOUTUBE_API_URL, urlencoding::encode(&search_text), result_limit, YOUTUBE_API_KEY);
+                    println!("youtube search url {}",url);
+                    match reqwest::get(url).await{
+                        Ok(data) => Ok((data.text().await.unwrap(), search_text)),
+                        Err(e) => Err(e.to_string())
+                    }
+                }
+
+                pub fn parse_youtube_res<'a>(api_response:& 'a str, search_term:& 'a str)-> Option<String>{
+                    let api_response_json:Value = serde_json::from_str(api_response).expect("json parse error");
+                    if let Some(obj) = api_response_json.as_object() {
+                        for val in obj["items"].as_array().unwrap() {
+                            /*let etag = val.get("etag");*/
+                            for (item_index, item_val) in val.as_object().iter().enumerate() {
+                                let video_id = item_val["id"]["videoId"].as_str().unwrap_or("video id not found");
+                                info!("found video id {}", video_id);
+                                return Some(video_id.to_string());
+                            }
+                        }
+                    }
+                    None
+                }
+            </code>
+        </pre>
+
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

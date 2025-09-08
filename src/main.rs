@@ -27,13 +27,10 @@ use rocket::fs::FileServer;
 use backend_task::{BackEndTask};
 use crate::db_lib::YoutubeData;
 
-#[get("/")]
-fn index() -> Template {
-    Template::render("home", context! { message: "Hello from Tera!" })
-}
-/*fn main() {
+#[get("/parse_csv_data")]
+fn parse_csv_data() {
     let song_csv_file_name:PathBuf = PathBuf::from("./data_file/spotify_dataset.csv");
-    /*match read_file(song_csv_file_name, true){
+    match read_file(song_csv_file_name, true){
         Ok(song_data) => {
             println!("Song Data inserted successfully");
             
@@ -42,9 +39,9 @@ fn index() -> Template {
             println!("Error: {:?}", error);
         }
         
-    }*/
-    get_song_data();
-}*/
+    }
+    get_song_data(None, Some(10), None);
+}
 #[get("/<song_id>")]
 fn get_song(song_id: i32) -> Json<Vec<(i32, String, String, String)>> {
     let mut song_ids:Vec<i32> = Vec::new();
@@ -147,7 +144,8 @@ async fn main() -> Result<(), rocket::Error> {
 
     rocket::build()
         .mount("/song", routes![get_song])
-        .mount("/", routes![home] )
+        .mount("/", routes![home])
+        .mount("/", routes![parse_csv_data])
         .mount("/", routes![get_rocket_framework_code] )
         .mount("/", routes![get_csv_parser_code] )
         .mount("/", routes![get_postgres_storage_code] )
@@ -156,7 +154,6 @@ async fn main() -> Result<(), rocket::Error> {
         .mount("/song", routes![get_all_songs])
         .mount("/song", routes![get_youtube_video])
         .mount("/song", routes![user_search])
-        .mount("/", routes![index])
         .mount("/", routes![fetch_youtube_link])
         .mount("/", FileServer::from("static/"))
         .attach(Template::fairing())
