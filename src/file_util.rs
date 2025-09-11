@@ -5,13 +5,6 @@ use csv;
 use diesel::PgConnection;
 use diesel::prelude::*;
 use super::models::{SongInformation, SongInformationBase, UniqueId};
-//use sha2::{Sha256};
-//use std::thread;
-//use diesel::PgConnection;
-//use diesel::r2d2::ConnectionManager;
-//use diesel::r2d2::Pool;
-//use std::io::{Seek, SeekFrom};
-//use std::fs;
 use super::db_lib::{establish_connection, insert_song_records, fetch_song_rows,
                     fetch_song_youtube_data, YoutubeData, count_unique_author_and_category};
 use std::time::Instant;

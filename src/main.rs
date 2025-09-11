@@ -13,6 +13,7 @@ mod youtube;
 mod constant;
 mod form_struct;
 mod backend_task;
+mod diesel_apply_migration;
 mod response_message;
 use crate::file_util::{read_file, get_song_data, get_song_list_with_video, get_unique_count};
 use crate::models::{SongInformation, SongInformationBase};
@@ -25,7 +26,10 @@ use rocket::form::{Form};
 use rocket_dyn_templates::{Template, context};
 use rocket::fs::FileServer;
 use backend_task::{BackEndTask};
-use crate::db_lib::YoutubeData;
+use crate::db_lib::{establish_connection, YoutubeData};
+use diesel_apply_migration::{run_migrations};
+
+
 
 #[get("/parse_csv_data")]
 fn parse_csv_data() {
@@ -141,6 +145,13 @@ fn user_search(search_data: Form<UserSearch<'_>>) -> Json<APIResponse<String>>{
 async fn main() -> Result<(), rocket::Error> {
     log4rs::init_file("./config/log_setting.yaml", Default::default()).unwrap();
     info!("Rocket application starting...");
+    match (run_migrations()){
+      Ok(migration_sql)=>{
+          info!("Running migration...");
+      }, Err(error)=>{
+            error!("{}", error);
+        }
+    };
 
     rocket::build()
         .mount("/song", routes![get_song])
