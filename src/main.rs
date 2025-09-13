@@ -143,7 +143,7 @@ fn user_search(search_data: Form<UserSearch<'_>>) -> Json<APIResponse<String>>{
 
 #[rocket::main]
 async fn main() -> Result<(), rocket::Error> {
-    log4rs::init_file("./config/log_setting.yaml", Default::default()).unwrap();
+    log4rs::init_file("/home/ec2-user/spotify-music-rust/log_setting.yaml", Default::default()).unwrap();
     info!("Rocket application starting...");
     match (run_migrations()){
       Ok(migration_sql)=>{
