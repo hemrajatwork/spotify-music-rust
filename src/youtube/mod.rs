@@ -13,7 +13,7 @@ pub async fn search_youtube(search_text:String, result_limit:i32) ->Result<(Stri
     let url = format!(
         "{}/search?part=snippet&q={}&maxResults={}&key={}&type=video&videoDuration=short&videoEmbeddable=true",
         YOUTUBE_API_URL, urlencoding::encode(&search_text), result_limit, YOUTUBE_API_KEY);
-    println!("youtube search url {}",url);
+    info!("youtube search url {}",url);
     match reqwest::get(url).await{
         Ok(data) => Ok((data.text().await.unwrap(), search_text)),
         Err(e) => Err(e.to_string())
@@ -21,6 +21,7 @@ pub async fn search_youtube(search_text:String, result_limit:i32) ->Result<(Stri
 }
 pub fn parse_youtube_res<'a>(api_response:& 'a str, search_term:& 'a str)-> Option<String>{
     let api_response_json:Value = serde_json::from_str(api_response).expect("json parse error");
+    info!("{:?}", api_response_json);
     if let Some(obj) = api_response_json.as_object() {
         for val in obj["items"].as_array().unwrap() {
             /*let etag = val.get("etag");*/

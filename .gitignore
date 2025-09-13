@@ -24,3 +24,7 @@ data_file/
 
 test.rs
 
+log/output.log
+
+sql_data/
+
