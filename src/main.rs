@@ -24,7 +24,7 @@ use serde_json::{self, Value};
 use form_struct::{UserSearch};
 use rocket::form::{Form};
 use rocket_dyn_templates::{Template, context};
-use rocket::fs::{FileServer, relative};
+use rocket::fs::{FileServer};
 use backend_task::{BackEndTask};
 use crate::db_lib::{establish_connection, YoutubeData};
 use diesel_apply_migration::{run_migrations};
@@ -166,7 +166,7 @@ async fn main() -> Result<(), rocket::Error> {
         .mount("/song", routes![get_youtube_video])
         .mount("/song", routes![user_search])
         .mount("/", routes![fetch_youtube_link])
-        .mount("/", FileServer::from("static/"))
+        /*.mount("/", FileServer::from("static/"))*/
         .attach(Template::fairing())
         .launch()
         .await?;
