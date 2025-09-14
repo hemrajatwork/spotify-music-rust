@@ -166,7 +166,7 @@ async fn main() -> Result<(), rocket::Error> {
         .mount("/song", routes![get_youtube_video])
         .mount("/song", routes![user_search])
         .mount("/", routes![fetch_youtube_link])
-        /*.mount("/", FileServer::from("static/"))*/
+        .mount("/", FileServer::from("static/"))
         .attach(Template::fairing())
         .launch()
         .await?;
