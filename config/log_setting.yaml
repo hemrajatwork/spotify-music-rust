@@ -1,7 +1,7 @@
 appenders:
   file_logger:
     kind: file
-    path: "/tmp/output.log"
+    path: "./log/output.log"
     encoder:
       pattern: "{l} - {m}\n"
 

@@ -61,8 +61,16 @@ fn get_all_songs(offset:Option<usize>, limit:Option<usize>) -> Json<Vec<(i32, St
 }
 
 #[get("/home?<offset>&<limit>")]
-fn home(offset:i64, limit:i64) -> Template {
-    let data = get_song_list_with_video(limit, offset);
+fn home(offset:Option<i64>, limit:Option<i64>) -> Template {
+    let data_limit = match limit{
+        Some(v) => v,
+        None => 20
+    };
+    let data_offset = match offset{
+        Some(v) => v,
+        None => 0
+    };
+    let data = get_song_list_with_video(data_limit, data_offset);
     let result = get_unique_count();
     let mut total_song:i64 = result.0;
     let mut total_youtube:i64 = result.3;
@@ -145,7 +153,7 @@ fn user_search(search_data: Form<UserSearch<'_>>) -> Json<APIResponse<String>>{
 async fn main() -> Result<(), rocket::Error> {
     log4rs::init_file("/home/ec2-user/spotify-music-rust/config/log_setting.yaml", Default::default()).unwrap();
     info!("Rocket application starting...");
-    match (run_migrations()){
+    match run_migrations(){
       Ok(migration_sql)=>{
           info!("Running migration...");
       }, Err(error)=>{

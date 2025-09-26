@@ -5160,3 +5160,359 @@ WARN - 🚀 [1;39mRocket has launched from [4mhttp://0.0.0.0:8000[0m
 WARN - Received SIGINT. Requesting shutdown.
 INFO - Shutdown requested. Waiting for pending I/O...
 INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - database_url is postgresql://postgres:postgres@localhost/spotify_db?options=-c%20search_path%3Dspotify_schema
+INFO - Running migration...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_resume[0m[36m)[0m [32mGET[0m [34m/resume[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mget_threading_code[0m[36m)[0m [32mGET[0m [34m/threading[0m
+INFO - [36m([0m[39mget_csv_parser_code[0m[36m)[0m [32mGET[0m [34m/csv_parser[0m
+INFO - [36m([0m[39mparse_csv_data[0m[36m)[0m [32mGET[0m [34m/parse_csv_data[0m
+INFO - [36m([0m[39mget_rocket_framework_code[0m[36m)[0m [32mGET[0m [34m/rocket_framework[0m
+INFO - [36m([0m[39mget_postgres_storage_code[0m[36m)[0m [32mGET[0m [34m/postgres_storage[0m
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/home/[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - database_url is postgresql://postgres:postgres@localhost/spotify_db?options=-c%20search_path%3Dspotify_schema
+INFO - offset 0, limit 20
+INFO - [YoutubeData { song_id: 2615, artist: "16tl ENT", song: "Z To A", emotion: "anger", video_id: Some("gXzf-Vay5co") }, YoutubeData { song_id: 2654, artist: "1814", song: "Pusimental", emotion: "joy", video_id: None }, YoutubeData { song_id: 2702, artist: "1814", song: "4 in the Morning", emotion: "anger", video_id: Some("AuubYeQ88lg") }, YoutubeData { song_id: 3246, artist: "21 Savage", song: "Runnin", emotion: "joy", video_id: Some("ZZ6VhTBcc-c") }, YoutubeData { song_id: 1674, artist: "$uicideboy$", song: "Now", emotion: "joy", video_id: Some("dq_SDNtWHDY") }, YoutubeData { song_id: 3263, artist: "21 Savage", song: "Many Men", emotion: "anger", video_id: Some("fm70MSTKNDM") }, YoutubeData { song_id: 2247, artist: "10,000 Fathers,Aaron Williams", song: "All Things Together Live", emotion: "love", video_id: Some("nDjx7gIjHh4") }, YoutubeData { song_id: 3034, artist: "2 Chainz,Future", song: "Doors Open", emotion: "joy", video_id: Some("tYQ1Okyi3g4") }, YoutubeData { song_id: 3092, artist: "2 Chainz,T-Pain", song: "So We Can Live", emotion: "anger", video_id: Some("G9-XNrgKqIY") }, YoutubeData { song_id: 3264, artist: "21 Savage", song: "My Dawg", emotion: "sadness", video_id: Some("aVoKeHRQVlE") }, YoutubeData { song_id: 1733, artist: "$uicideboy$,Ramirez", song: "59", emotion: "anger", video_id: Some("Vjllc_3SXXY") }, YoutubeData { song_id: 1734, artist: "$uicideboy$,Ramirez,Black Smurf", song: "Loot", emotion: "anger", video_id: Some("ujcwp-rGZaA") }, YoutubeData { song_id: 1927, artist: "*NSYNC", song: "I Don't Wanna Spend One More Christmas Without You", emotion: "sadness", video_id: Some("mF-f7TPj90k") }, YoutubeData { song_id: 3265, artist: "21 Savage", song: "RIP Luv", emotion: "sadness", video_id: Some("PmYzqZeUNmo") }, YoutubeData { song_id: 3266, artist: "21 Savage", song: "Whole Lot", emotion: "anger", video_id: Some("sV2t3tW_JTQ") }, YoutubeData { song_id: 3267, artist: "21 Savage", song: "Slidin", emotion: "anger", video_id: Some("EHi2QTIAaAg") }, YoutubeData { song_id: 3279, artist: "21 Savage", song: "No Opp Left Behind", emotion: "anger", video_id: Some("KkXvCRuIVns") }, YoutubeData { song_id: 1940, artist: "*NSYNC", song: "The Christmas Song", emotion: "joy", video_id: Some("ugrog-L1BJg") }, YoutubeData { song_id: 3377, artist: "21 Savage,Metro Boomin,Young Thug", song: "Savage Mode", emotion: "anger", video_id: Some("zlNCU09gzwc") }, YoutubeData { song_id: 3378, artist: "21 Savage,Offset,Metro Boomin,Travis Scott", song: "Darth Vader", emotion: "anger", video_id: Some("bWv-bR_X-VM") }]
+INFO - database_url is postgresql://postgres:postgres@localhost/spotify_db?options=-c%20search_path%3Dspotify_schema
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/apple-icon.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/img/favicon.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - database_url is postgresql://postgres:postgres@localhost/spotify_db?options=-c%20search_path%3Dspotify_schema
+INFO - Running migration...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_resume[0m[36m)[0m [32mGET[0m [34m/resume[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mget_threading_code[0m[36m)[0m [32mGET[0m [34m/threading[0m
+INFO - [36m([0m[39mget_csv_parser_code[0m[36m)[0m [32mGET[0m [34m/csv_parser[0m
+INFO - [36m([0m[39mparse_csv_data[0m[36m)[0m [32mGET[0m [34m/parse_csv_data[0m
+INFO - [36m([0m[39mget_rocket_framework_code[0m[36m)[0m [32mGET[0m [34m/rocket_framework[0m
+INFO - [36m([0m[39mget_postgres_storage_code[0m[36m)[0m [32mGET[0m [34m/postgres_storage[0m
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/home/home[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/home/home[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage/avif[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+WARN - Remote left: client disconnect before response started.
+INFO - [32mGET[0m [34m/home/csv_parser[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+WARN - I/O Error: [39mOs { code: 2, kind: NotFound, message: "No such file or directory" }[0m
+INFO - [1;39mOutcome: [0m[33mForward[0m([39m404 Not Found[0m)
+ERROR - No matching routes for [32mGET[0m [34m/home/csv_parser[0m [33mtext/html[0m.
+WARN - No [1;34m404[0m catcher registered. Using Rocket default.
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/home[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - database_url is postgresql://postgres:postgres@localhost/spotify_db?options=-c%20search_path%3Dspotify_schema
+INFO - offset 0, limit 20
+INFO - [YoutubeData { song_id: 3377, artist: "21 Savage,Metro Boomin,Young Thug", song: "Savage Mode", emotion: "anger", video_id: Some("zlNCU09gzwc") }, YoutubeData { song_id: 3378, artist: "21 Savage,Offset,Metro Boomin,Travis Scott", song: "Darth Vader", emotion: "anger", video_id: Some("bWv-bR_X-VM") }, YoutubeData { song_id: 4259, artist: "311", song: "Lucky", emotion: "joy", video_id: Some("IM7-GD8Fq8A") }, YoutubeData { song_id: 3548, artist: "25K", song: "Dagwood", emotion: "anger", video_id: Some("jQtndpZatjE") }, YoutubeData { song_id: 2801, artist: "1991", song: "Endless Slut", emotion: "sadness", video_id: Some("ceVDz9VEoI8") }, YoutubeData { song_id: 2309, artist: "1000mods", song: "Horses Green", emotion: "joy", video_id: Some("SXKFUm8fKp8") }, YoutubeData { song_id: 3549, artist: "25K", song: "Apple Soda / Record Deal", emotion: "anger", video_id: Some("FgnKHFTof5I") }, YoutubeData { song_id: 3580, artist: "28AV,Nacho Picasso", song: "So Dark", emotion: "anger", video_id: Some("47JTFV0JX5Y") }, YoutubeData { song_id: 3728, artist: "2Pac", song: "If I Die 2Nite", emotion: "anger", video_id: Some("rrwPVCEANoU") }, YoutubeData { song_id: 2310, artist: "1000mods", song: "Pearl", emotion: "sadness", video_id: Some("UCZNlMUgJfY") }, YoutubeData { song_id: 3729, artist: "2Pac", song: "Blasphemy", emotion: "joy", video_id: Some("THFgfPKvDts") }, YoutubeData { song_id: 3730, artist: "2Pac", song: "Troublesome 96", emotion: "anger", video_id: Some("wQX94PSnYU4") }, YoutubeData { song_id: 3731, artist: "2Pac", song: "Temptations", emotion: "sadness", video_id: Some("pFNDh4smb6k") }, YoutubeData { song_id: 5263, artist: "504 Boyz", song: "Big Toys", emotion: "sadness", video_id: Some("Ly-VEtThmn8") }, YoutubeData { song_id: 1333, artist: "$NOT", song: "Once Upon A Time Outro", emotion: "sadness", video_id: Some("g6rCleZJ1fw") }, YoutubeData { song_id: 3732, artist: "2Pac", song: "Never Had a Friend Like Me", emotion: "sadness", video_id: Some("vRL4vtIRMsQ") }, YoutubeData { song_id: 4635, artist: "3xBIND,Second Sine", song: "Life Coach", emotion: "anger", video_id: None }, YoutubeData { song_id: 9470, artist: "Ace Hood,Bruno Mali", song: "King Kong", emotion: "joy", video_id: Some("RcERmv1jemI") }, YoutubeData { song_id: 3733, artist: "2Pac", song: "Heartz Of Men", emotion: "anger", video_id: Some("_l40v6amLUk") }, YoutubeData { song_id: 3394, artist: "22-Pistepirkko", song: "Onion Soup", emotion: "joy", video_id: Some("JaPauVX3cCo") }]
+INFO - database_url is postgresql://postgres:postgres@localhost/spotify_db?options=-c%20search_path%3Dspotify_schema
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/rocket_framework[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mget_rocket_framework_code[0m[36m)[0m [32mGET[0m [34m/rocket_framework[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+WARN - Received SIGINT. Requesting shutdown.
+INFO - Shutdown requested. Waiting for pending I/O...
+INFO - Graceful shutdown completed successfully.
+INFO - Rocket application starting...
+INFO - database_url is postgresql://postgres:postgres@localhost/spotify_db?options=-c%20search_path%3Dspotify_schema
+INFO - Running migration...
+INFO - 🔧 Configured for [4mdebug[0m.
+INFO - address: [1;39m127.0.0.1[0m
+INFO - port: [1;39m8000[0m
+INFO - workers: [1;39m4[0m
+INFO - max blocking threads: [1;39m512[0m
+INFO - ident: [1;39mRocket[0m
+INFO - IP header: [1;39mX-Real-IP[0m
+INFO - limits: [1;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+INFO - temp dir: [1;39m/tmp[0m
+INFO - http/2: [1;39mtrue[0m
+INFO - keep-alive: [1;39m5[0m[1;39ms[0m
+INFO - tls: [1;39mdisabled[0m
+INFO - shutdown: [1;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+INFO - log level: [1;39mnormal[0m
+INFO - cli colors: [1;39mtrue[0m
+INFO - 📬 [35mRoutes[0m:
+INFO - [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_resume[0m[36m)[0m [32mGET[0m [34m/resume[0m
+INFO - [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [36m([0m[39mget_threading_code[0m[36m)[0m [32mGET[0m [34m/threading[0m
+INFO - [36m([0m[39mget_csv_parser_code[0m[36m)[0m [32mGET[0m [34m/csv_parser[0m
+INFO - [36m([0m[39mparse_csv_data[0m[36m)[0m [32mGET[0m [34m/parse_csv_data[0m
+INFO - [36m([0m[39mget_rocket_framework_code[0m[36m)[0m [32mGET[0m [34m/rocket_framework[0m
+INFO - [36m([0m[39mget_postgres_storage_code[0m[36m)[0m [32mGET[0m [34m/postgres_storage[0m
+INFO - [36m([0m[39mfetch_youtube_link[0m[36m)[0m [32mGET[0m [34m/youtube/link[0m
+INFO - [36m([0m[39mget_all_songs[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/all?<offset>&<limit>[0m
+INFO - [36m([0m[39mget_song[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/<song_id>[0m
+INFO - [36m([0m[39muser_search[0m[36m)[0m [32mPOST[0m [4;34m/song[0m[34m/user_search[0m
+INFO - [36m([0m[39mget_youtube_video[0m[36m)[0m [32mGET[0m [4;34m/song[0m[34m/search/<search_text>/<limit>[0m
+INFO - 📡 [35mFairings[0m:
+INFO - [1;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+INFO - [1;39mTemplating[0m ([1;34mignite, liftoff, request[0m)
+INFO - 🛡️ [35mShield[0m:
+INFO - X-Frame-Options: [39mSAMEORIGIN[0m
+INFO - X-Content-Type-Options: [39mnosniff[0m
+INFO - Permissions-Policy: [39minterest-cohort=()[0m
+INFO - 📐 [35mTemplating[0m:
+INFO - directory: [39mtemplates[0m
+INFO - engines: [39m["tera"][0m
+WARN - 🚀 [1;39mRocket has launched from [4mhttp://127.0.0.1:8000[0m
+INFO - [32mGET[0m [34m/home[0m [33mtext/html[0m:
+INFO - Matched: [36m([0m[39mhome[0m[36m)[0m [32mGET[0m [34m/home?<offset>&<limit>[0m
+INFO - database_url is postgresql://postgres:postgres@localhost/spotify_db?options=-c%20search_path%3Dspotify_schema
+INFO - offset 0, limit 20
+INFO - [YoutubeData { song_id: 3733, artist: "2Pac", song: "Heartz Of Men", emotion: "anger", video_id: Some("_l40v6amLUk") }, YoutubeData { song_id: 3394, artist: "22-Pistepirkko", song: "Onion Soup", emotion: "joy", video_id: Some("JaPauVX3cCo") }, YoutubeData { song_id: 1740, artist: "$uicideboy$,Travis Barker", song: "A Ghost", emotion: "joy", video_id: Some("fQSHV2AQnR4") }, YoutubeData { song_id: 1741, artist: "$uicideboy$,Trippy tha Kid", song: "Ma$k  da Glock", emotion: "anger", video_id: Some("doDrmyTB1Lo") }, YoutubeData { song_id: 3734, artist: "2Pac", song: "No More Pain", emotion: "anger", video_id: Some("Ow_2nA9kXmw") }, YoutubeData { song_id: 1742, artist: "$uicideboy$,Woozy Medz", song: "Deep Web", emotion: "anger", video_id: Some("bUFIroldm0w") }, YoutubeData { song_id: 3735, artist: "2Pac", song: "Can U Get Away", emotion: "fear", video_id: Some("y1zNsHsahRc") }, YoutubeData { song_id: 3736, artist: "2Pac", song: "Old School", emotion: "joy", video_id: Some("ryVNbhZ08g4") }, YoutubeData { song_id: 3737, artist: "2Pac", song: "God Bless the Dead", emotion: "anger", video_id: Some("zcy4VysszkY") }, YoutubeData { song_id: 3738, artist: "2Pac", song: "Holla At Me", emotion: "fear", video_id: Some("SRX5gjOUCJk") }, YoutubeData { song_id: 3739, artist: "2Pac", song: "Death Around the Corner", emotion: "fear", video_id: Some("xqGH5T7MPrM") }, YoutubeData { song_id: 5519, artist: "6ixbuzz,Bizz loc,Roney", song: "Dont Talk", emotion: "anger", video_id: Some("luE_cQubskg") }, YoutubeData { song_id: 3740, artist: "2Pac", song: "White Manz World", emotion: "sadness", video_id: Some("w7pszeV22Qg") }, YoutubeData { song_id: 3741, artist: "2Pac", song: "Toss It Up", emotion: "surprise", video_id: Some("ceHl8MplcAg") }, YoutubeData { song_id: 3769, artist: "2Pac", song: "Resist the Temptation", emotion: "anger", video_id: Some("4vARQ0EI2RU") }, YoutubeData { song_id: 3770, artist: "2Pac", song: "Soldier Like Me Return Of The Soulja", emotion: "anger", video_id: Some("ugkG91ndJJk") }, YoutubeData { song_id: 3784, artist: "2Pac", song: "Im Gettin Money", emotion: "sadness", video_id: Some("YhIPITnBXHs") }, YoutubeData { song_id: 11339, artist: "Aesop Rock", song: "No Regrets", emotion: "anger", video_id: Some("b6d6nO7CKsc") }, YoutubeData { song_id: 3801, artist: "2Pac", song: "Words 2 My First Born", emotion: "sadness", video_id: Some("LJp7fCstgEI") }, YoutubeData { song_id: 2863, artist: "1nonly", song: "I Fell in Love With You One Night in June", emotion: "sadness", video_id: Some("ZgmfrceB9nU") }]
+INFO - database_url is postgresql://postgres:postgres@localhost/spotify_db?options=-c%20search_path%3Dspotify_schema
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/css/nucleo-icons.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/css/nucleo-svg.css[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/core/bootstrap.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/css/material-dashboard.css?v=3.2.0[0m [33mtext/css[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/core/popper.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/plugins/perfect-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/smooth-scrollbar.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/js/material-dashboard.min.js?v=3.2.0[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mGET[0m [34m/js/plugins/chartjs.min.js[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [32mResponse succeeded.[0m
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mResponse succeeded.[0m
+INFO - [32mGET[0m [34m/img/logo-ct-dark.png[0m [33mimage/avif[0m:
+INFO - Matched: [36m([0m[39mFileServer: static/[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;39m10[0m]
+INFO - [1;39mOutcome: [0m[32mSuccess[0m([39m200 OK[0m)
+INFO - [32mResponse succeeded.[0m

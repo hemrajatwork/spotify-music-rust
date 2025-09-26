@@ -2586,6 +2586,7 @@ dependencies = [
  "serde",
  "serde_json",
  "sha2 0.9.9",
+ "tokio",
  "urlencoding",
 ]
 
@@ -2804,6 +2805,7 @@ dependencies = [
  "io-uring",
  "libc",
  "mio 1.0.4",
+ "parking_lot 0.12.3",
  "pin-project-lite",
  "signal-hook-registry",
  "slab",
